@@ -1,0 +1,4 @@
+# Normalize source/documentation; preserve exact evidence bytes for SHA-256 checks.
+* text=auto eol=lf
+/results/*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/results/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,145 @@
+data:
+  symbol: "300750"
+  exchange: "sz"
+  start_date: "2020-01-01"
+  end_date: "2025-12-31"
+  output_dir: "data/output/cleaned_full_model_notice_final_risk_overlay"
+  gdelt_enabled: false
+  refresh: false
+  cache_dir: data/cache_run_experiment_20260506
+  news_min_relevance_score: 8.0
+  news_industry_only_min_score: 12.0
+  news_min_text_chars: 28
+  news_near_duplicate_days: 14
+  news_max_per_day: 8
+  news_max_per_source_per_day: 2
+  notice_quality_filter: true
+  notice_min_relevance_score: 5.5
+  notice_min_text_chars: 24
+  notice_near_duplicate_days: 45
+  notice_max_per_day: 3
+  notice_exclude_routine: true
+  notice_min_event_strength: 0.70
+  notice_title_only_min_relevance: 7.5
+  notice_min_keep_rows: 80
+  notice_fallback_min_event_strength: 0.60
+  notice_fallback_title_only_min_relevance: 7.0
+  notice_global_dedupe_days: 3650
+  notice_max_per_class_per_month: 3
+  notice_drop_title_only_periodic_reports: true
+  notice_drop_progress_updates: true
+  text_similarity_dedupe_threshold: 0.82
+  text_similarity_dedupe_window_days: 21
+  text_min_source_quality: 0.35
+  sentiment_winsor_lower: 0.02
+  sentiment_winsor_upper: 0.98
+  macro_cleaning_enabled: true
+  macro_cpi_release_lag_days: 10
+  macro_pmi_release_lag_days: 1
+  macro_m2_release_lag_days: 12
+  macro_gdp_release_lag_days: 20
+
+features:
+  lookback: 45
+  horizon: 1
+  denoise: true
+  causal_denoise: true
+  text_selection_top_k: 3
+  use_text_modality: true
+  use_tcn: true
+  use_static_covariates: true
+  use_known_future_decoder: true
+  use_cross_attention: true
+  use_modality_gate: true
+  use_soft_topk: true
+  notice_event_weight: 0.04
+  macro_feature_weight: 0.20
+  macro_use_changes_only: false
+  macro_add_release_impulses: true
+  industry_feature_weight: 0.40
+
+train:
+  seed: 2026
+  batch_size: 128
+  epochs: 60
+  lr: 0.0005
+  weight_decay: 0.0001
+  hidden_dim: 48
+  heads: 4
+  dropout: 0.15
+  early_stop_rounds: 10
+  point_weight: 0.8
+  quantile_weight: 0.3
+  direction_weight: 2.0
+  direction_focal_gamma: 1.0
+  text_event_quality_gate_strength: 1.80
+  modality_prior_strength: 0.30
+  modality_numeric_prior: 0.74
+  modality_text_prior: 0.13
+  modality_cross_prior: 0.13
+  tune_metric: "target55"
+  hyper_max_trials: 2
+  hyper_trial_specs:
+    - {hidden_dim: 48, dropout: 0.15, direction_weight: 2.0, point_weight: 0.8, quantile_weight: 0.3, lr: 0.0010, weight_decay: 0.0001}
+    - {hidden_dim: 48, dropout: 0.15, direction_weight: 2.0, point_weight: 0.8, quantile_weight: 0.3, lr: 0.0005, weight_decay: 0.0001}
+  multi_seeds: [2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043]
+
+backtest:
+  train_days: 720
+  val_days: 160
+  test_days: 80
+  step_days: 40
+  transaction_cost_bps: 10.0
+  slippage_bps: 10.0
+  direction_threshold: 0.55
+  max_position: 0.65
+  max_daily_turnover: 0.20
+  execution_delay_days: 1
+  block_limit_trades: true
+  strategy_signal: "hybrid"
+  strategy_threshold_mode: "validation_quantile"
+  strategy_quantiles: [0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80]
+  strategy_min_exposure: 0.10
+  strategy_max_exposure: 0.60
+  strategy_target_exposure: 0.25
+  strategy_opt_metric: "significance"
+  strategy_use_external_baselines: false
+  strategy_robust_segments: 4
+  strategy_min_positive_segment_ratio: 0.50
+  strategy_worst_segment_weight: 0.25
+  strategy_fit_validation_ensemble: true
+  strategy_fit_ridge_alpha: 0.25
+  strategy_shadow_experts: ["no_news", "no_notices", "no_macro", "no_financial", "no_policy", "no_sentiment", "no_industry"]
+  strategy_preferred_sources: ["shadow_no_industry", "avg_main_shadow_no_industry", "shadow_no_sentiment", "shadow_no_notices", "avg_main_shadow_no_notices"]
+  strategy_preferred_source_bonus: 0.0
+  strategy_preferred_min_validation_score: 0.0
+  strategy_preferred_min_positive_segment_ratio: 0.50
+  strategy_position_ensemble: true
+  strategy_position_ensemble_top_k: 5
+  strategy_position_ensemble_min_return: 0.0
+  strategy_position_ensemble_sort_metric: "significance"
+  strategy_position_ensemble_leverage: 1.8
+  strategy_position_ensemble_allow_inverse: true
+  strategy_position_ensemble_inverse_min_return: 0.0
+  strategy_position_ensemble_risk_overlay: true
+  strategy_position_pruning: true
+  strategy_position_pruning_quantiles: [0.65, 0.70, 0.75, 0.80]
+  strategy_position_pruning_min_return_ratio: 0.70
+  strategy_risk_overlay_vol_quantiles: [0.60, 0.70, 0.80, 0.90, 0.95]
+  strategy_risk_overlay_drawdown_thresholds: [-0.01, -0.015, -0.02, -0.03, -0.05]
+  strategy_risk_overlay_scales: [0.0, 0.15, 0.25, 0.40, 0.50, 0.75]
+  strategy_risk_overlay_min_improvement: 0.0
+  strategy_final_risk_overlay: true
+  strategy_final_risk_overlay_min_return_ratio: 0.80
+  strategy_position_ensemble_reserve_sources: []
+  strategy_position_ensemble_reserve_weight: 0.0
+  strategy_position_ensemble_reserve_min_return: -0.05
+  ablation_use_configured_strategy: true
+  ablation_variant_disable_strategy_optimization: true
+  ablation_variant_strategy_signal: "hybrid"
+  ablation_variant_strategy_target_exposure: 0.25
+  require_positive_probability: true
+  require_positive_return: false
+  run_baselines: true
+  direction_use_external_baselines: false
+  direction_selection_mode: "return"

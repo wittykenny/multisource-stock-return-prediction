@@ -1,0 +1,54 @@
+{
+  "ablation.csv": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/300750/ablation_summary.csv",
+    "source_sha256": "666e9ac051a42df342761513a4752b8599ced06a7aca27ff5742ef0bdf229659",
+    "transformation": "Byte-for-byte copy",
+    "release_sha256": "666e9ac051a42df342761513a4752b8599ced06a7aca27ff5742ef0bdf229659"
+  },
+  "ablation_significance.csv": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/300750/ablation_significance.csv",
+    "source_sha256": "706ad64096db48274cb962de14bf28b7deb10c6d51c3e5844043ca010452af02",
+    "transformation": "Byte-for-byte copy",
+    "release_sha256": "706ad64096db48274cb962de14bf28b7deb10c6d51c3e5844043ca010452af02"
+  },
+  "leakage_audit.json": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/leakage_audit.json",
+    "source_sha256": "dacddadf7460890f610f484a0953ff94b5e44ec36abb37da2fa59cb5a59c41ee",
+    "transformation": "Byte-for-byte copy",
+    "release_sha256": "dacddadf7460890f610f484a0953ff94b5e44ec36abb37da2fa59cb5a59c41ee"
+  },
+  "reported_metrics.json": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/backtest_report.json",
+    "source_sha256": "89b81ad1bd55bea93ca1c5965c8b585ebdda34513c81db7ef14d86d5fb9b40eb",
+    "transformation": "Extract metrics object verbatim; exclude raw text, explanation examples and machine-specific output path",
+    "release_sha256": "258e48597cbdf34470c4b71041d241eb6d237b301deb9a1e16d06e1501d2ec9b"
+  },
+  "experiment_config.json": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/backtest_report.json",
+    "source_sha256": "89b81ad1bd55bea93ca1c5965c8b585ebdda34513c81db7ef14d86d5fb9b40eb",
+    "transformation": "Extract saved resolved config verbatim, including run_baselines=false and Windows-relative output_dir",
+    "release_sha256": "f0162fbcc2f3f54eeeea63624791e1b66843343580568d277e06171343c79b9a"
+  },
+  "main_results.csv": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/backtest_report.json",
+    "source_sha256": "89b81ad1bd55bea93ca1c5965c8b585ebdda34513c81db7ef14d86d5fb9b40eb",
+    "transformation": "Convert metrics object to metric,value rows; no recomputation",
+    "release_sha256": "a6f07c3fb5837f8bfccf95c73ab233ed32d530a001c82aed77f4208e890609b9"
+  },
+  "data_summary.json": {
+    "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/prepare_summary.json",
+    "source_sha256": "34113e9be2e25b8a766ee4b925cccd1aa1142b35eac635933ac1b98f7cf0deba",
+    "transformation": "Retain metadata/source_notes; add row counts/date range and direction counts from saved CSV files; diagnostics only, not replacement results",
+    "release_sha256": "cdea6a593cb80dfeba31bcfedb7107d3d7f6d712087bd69de36064c5adde678f",
+    "additional_sources": [
+      {
+        "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/prepared_features.csv",
+        "source_sha256": "0796f0f8745dc2367616dee687b8fafb88d2f23027a24604cf12af0a1be993ec"
+      },
+      {
+        "source": "data/output/cleaned_full_model_notice_final_risk_overlay/ablations/full/300750/backtest_predictions.csv",
+        "source_sha256": "32600e42addd8c77796775484170b5b2dd0d0b247876647a83b576573be53bfb"
+      }
+    ]
+  }
+}

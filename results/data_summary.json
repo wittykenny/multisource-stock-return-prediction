@@ -1,0 +1,77 @@
+{
+  "prepared_rows": 1454,
+  "prepared_start": "2020-01-02",
+  "prepared_end": "2025-12-30",
+  "evaluation_start": "2023-08-18",
+  "evaluation_end": "2025-12-10",
+  "unique_evaluation_dates": 560,
+  "actual_direction_counts": {
+    "0": 309,
+    "1": 251
+  },
+  "predicted_direction_counts": {
+    "0": 560
+  },
+  "metadata": {
+    "finbert_enabled": true,
+    "finbert_sentiment_enabled": true,
+    "text_encoder": "finbert_local_only",
+    "vmd_enabled": true,
+    "causal_denoise": true,
+    "denoise_window": 160,
+    "denoise_stride": 5,
+    "differentiable_text_selection": true,
+    "end_to_end_text_candidate_pool": true,
+    "raw_text_to_prediction_end_to_end": false,
+    "raw_text_end_to_end_note": "disabled: rolling-window FinBERT fine-tuning over all raw news candidates is not computationally practical in this project pipeline; FinBERT embeddings remain local pretrained encodings.",
+    "strict_official_policy": true,
+    "guba_historical_pages": 300,
+    "guba_min_rows_per_year": 30,
+    "financial_alignment": "disclosure_date_or_report_date_plus_lag",
+    "financial_report_lag_days": 90,
+    "text_lag_business_days": 1,
+    "ablation_feature_switches": {
+      "news": true,
+      "notices": true,
+      "sentiment": true,
+      "policy": true,
+      "financial": true,
+      "macro": true,
+      "industry": true
+    },
+    "modality_input_weights": {
+      "notice_event_weight": 0.04,
+      "macro_feature_weight": 0.2,
+      "industry_feature_weight": 0.4
+    },
+    "text_event_pool_enabled": true,
+    "canonical_tft_decoder": true,
+    "tcn_enabled": true,
+    "static_covariates_enabled": true,
+    "known_future_decoder_enabled": true,
+    "two_industry_sequences": true,
+    "independent_text_sentiment_dataset": true,
+    "lookback": 45,
+    "horizon": 1,
+    "max_text_events": 8,
+    "text_event_feature_dim": 788,
+    "text_selection_top_k": 3,
+    "known_future_feature_count": 9,
+    "static_feature_count": 3,
+    "denoised_feature_count": 10,
+    "text_available_ratio": 0.59353507565337
+  },
+  "source_notes": [
+    "Macro release-date cleaning kept 279 release rows from 1817 raw rows.",
+    "Policy corpus sources: policy_official_fulltext",
+    "Official policy corpus is incomplete for years: 2020, 2021, 2022, 2023. Public ministry archive access/search coverage may be incomplete in the current network environment.",
+    "Text corpus sources: eastmoney_search_company_code, eastmoney_search_industry_theme, google_news_rss_battery, google_news_rss_code, google_news_rss_company, google_news_rss_industry, google_news_rss_storage, sina_search_company_code, sina_search_company_name",
+    "Eastmoney historical news search is available but effectively capped to the most recent result window per keyword.",
+    "Sina historical news search is fetched in year-sliced mode to extend 2020-2025 company news coverage.",
+    "Google News RSS is enabled in month-like time windows as a historical news supplement for 2020-2025 coverage.",
+    "Company notices are fetched from CNInfo official fulltext search.",
+    "Independent news/notice sentiment dataset is available with 1999 event rows and 1029 daily rows.",
+    "Investor sentiment sources: historical_text_proxy",
+    "Direct Eastmoney Guba historical coverage is incomplete for years: . Text-sentiment proxy fields are retained only as a supplement."
+  ]
+}

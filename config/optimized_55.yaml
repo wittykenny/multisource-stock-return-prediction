@@ -1,0 +1,98 @@
+data:
+  symbol: "300750"
+  exchange: "sz"
+  company_name: "宁德时代"
+  start_date: "2020-01-01"
+  end_date: "2025-12-31"
+  output_dir: "data/output/optimized_55"
+  gdelt_enabled: false
+  refresh: false
+  cache_dir: data/cache_run_experiment_20260506
+  news_min_relevance_score: 8.0
+  news_industry_only_min_score: 12.0
+  news_min_text_chars: 28
+  news_near_duplicate_days: 14
+  news_max_per_day: 8
+  news_max_per_source_per_day: 2
+  notice_quality_filter: true
+  notice_min_relevance_score: 5.5
+  notice_min_text_chars: 24
+  notice_near_duplicate_days: 45
+  notice_max_per_day: 3
+  text_similarity_dedupe_threshold: 0.82
+  text_similarity_dedupe_window_days: 21
+  text_min_source_quality: 0.35
+  sentiment_winsor_lower: 0.02
+  sentiment_winsor_upper: 0.98
+
+features:
+  lookback: 45
+  horizon: 1
+  denoise: true
+  causal_denoise: true
+  text_selection_top_k: 3
+  use_text_modality: true
+  use_tcn: true
+  use_static_covariates: true
+  use_known_future_decoder: true
+  use_cross_attention: true
+  use_modality_gate: true
+  use_soft_topk: true
+  notice_event_weight: 0.25
+  macro_feature_weight: 0.40
+  industry_feature_weight: 0.40
+
+train:
+  seed: 2026
+  batch_size: 128
+  epochs: 60
+  lr: 0.0005
+  weight_decay: 0.0001
+  hidden_dim: 48
+  heads: 4
+  dropout: 0.15
+  early_stop_rounds: 10
+  point_weight: 0.8
+  quantile_weight: 0.3
+  direction_weight: 2.0
+  direction_focal_gamma: 1.0
+  tune_metric: "target55"
+  hyper_max_trials: 2
+  hyper_hidden_dims: [48, 64, 96]
+  hyper_dropouts: [0.15, 0.20, 0.30]
+  hyper_direction_weights: [1.4, 1.8, 2.2, 2.8]
+  hyper_point_weights: [0.8, 1.0, 1.2]
+  hyper_quantile_weights: [0.2, 0.3, 0.5]
+  hyper_lrs: [0.0005, 0.0008, 0.001]
+  hyper_weight_decays: [0.00005, 0.0001, 0.0003]
+  hyper_trial_specs:
+    # Previous trial 17: best MAE, return, and Sharpe trade-off.
+    - {hidden_dim: 48, dropout: 0.15, direction_weight: 2.0, point_weight: 0.8, quantile_weight: 0.3, lr: 0.0010, weight_decay: 0.0001}
+    # Previous trial 11: best balanced score with smaller drawdown.
+    - {hidden_dim: 48, dropout: 0.15, direction_weight: 2.0, point_weight: 0.8, quantile_weight: 0.3, lr: 0.0005, weight_decay: 0.0001}
+  multi_seeds: [2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043]
+
+backtest:
+  train_days: 720
+  val_days: 160
+  test_days: 80
+  step_days: 40
+  transaction_cost_bps: 10.0
+  slippage_bps: 10.0
+  direction_threshold: 0.55
+  max_position: 0.65
+  max_daily_turnover: 0.20
+  execution_delay_days: 1
+  block_limit_trades: true
+  strategy_signal: "external"
+  strategy_threshold_mode: "validation_quantile"
+  strategy_quantiles: [0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80]
+  strategy_min_exposure: 0.10
+  strategy_max_exposure: 0.60
+  strategy_target_exposure: 0.25
+  strategy_opt_metric: "sharpe"
+  require_positive_probability: true
+  require_positive_return: false
+  run_baselines: true
+  direction_use_external_baselines: false
+  direction_selection_mode: "return"

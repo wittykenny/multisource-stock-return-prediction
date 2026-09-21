@@ -1,0 +1,8 @@
+data:
+  cache_dir: data/cache_run_experiment_20260506
+  output_dir: data/output/optimized_experiment_20260507
+  refresh: false
+  strict_official_policy: false
+  guba_pages: 1
+train:
+  device: cuda

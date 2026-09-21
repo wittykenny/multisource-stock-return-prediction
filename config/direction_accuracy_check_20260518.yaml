@@ -1,0 +1,11 @@
+data:
+  cache_dir: data/cache_run_experiment_20260506
+  output_dir: data/output/direction_accuracy_check_20260518
+  refresh: false
+  strict_official_policy: false
+  guba_pages: 1
+train:
+  device: cuda
+  direction_weight: 0.8
+backtest:
+  run_baselines: false

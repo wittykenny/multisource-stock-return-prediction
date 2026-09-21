@@ -1,0 +1,22 @@
+# Direct runtime imports only. Versions observed in the existing Python 3.13.3
+# environment during release checks; not a historical training lock.
+akshare==1.18.55
+beautifulsoup4==4.14.3
+lxml==6.0.4
+numpy==2.4.4
+pandas==3.0.2
+PyWavelets==1.9.0
+PyYAML==6.0.3
+requests==2.33.1
+scikit-learn==1.8.0
+torch==2.11.0
+transformers==5.5.4
+urllib3==2.6.3
+vmdpy==0.2
+
+# Optional backend/PDF imports present in the code; versions were not available
+# in the existing project environment. Fresh installation remains unverified.
+xgboost
+statsmodels
+arch
+pypdf
