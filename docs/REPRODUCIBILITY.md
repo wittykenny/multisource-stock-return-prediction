@@ -102,38 +102,28 @@ matched secret values. Its allowlist and 10 MiB limit complement manual review.
 Keyword hits such as tokenizer names or audit pattern definitions are expected
 and need contextual review. This is a heuristic scan, not a security guarantee.
 
-## Private GitHub upload
+## Published repository and maintenance
 
-Suggested name: `multisource-stock-return-prediction`. Upload only the reviewed
-tracked code, configs, test, audit script, documentation and aggregate results.
-On Windows, install GitHub CLI if absent with
-`winget install --id GitHub.cli --exact`, reopen the terminal, then run from this
-repository:
+The author explicitly requested publication after the local release review. The
+repository was created privately, uploaded, checked against the local Git commit
+and tree, and then changed to public:
 
-```powershell
-gh auth login
-gh auth status
-python scripts/audit_release.py
-python scripts/audit_release.py --staged
-git status
-git log --oneline -5
-$owner = gh api user --jq .login
-gh repo list $owner --limit 1000 --json name --jq '.[].name'
-```
+https://github.com/wittykenny/multisource-stock-return-prediction
 
-If the exact name already exists, stop and choose a different name. If listing
-fails, resolve authentication/network access before continuing. Do not reuse or
-overwrite an existing repository. Check `git remote -v` is still empty; otherwise
-inspect the existing remote rather than replacing it. After these checks:
+The initial release is commit `77940a0` on `main`. Subsequent documentation updates
+record the publication state without changing the model, data or experimental
+results. The original local dataset, pretrained weights, manuscript material and
+credential files remain excluded.
 
-```powershell
-gh repo create "$owner/multisource-stock-return-prediction" --private --source . --remote origin
-git push -u origin HEAD
-```
+The publishing session used the official GitHub CLI portable package with its
+upstream checksum verified, and the author completed the normal GitHub CLI login.
+A repository-local credential helper uses that CLI; no token is embedded in Git
+configuration. The helper's executable is in the ignored local audit directory.
+After moving this workspace, update the local helper path or configure your own
+standard GitHub authentication. It is not part of a fresh clone.
 
-`gh repo create` fails on a name collision rather than overwriting it. If a local
-initial commit could not be created because Git identity is unset, first set a
-user-approved author identity (prefer the account's GitHub-provided no-reply
-address), rerun staged checks, then commit with `git commit -m "Initial public
-release"`. Do not invent an email address. Never force push. Private visibility
-does not make secrets or unlicensed raw data acceptable to upload.
+For later changes, inspect the actual diff and rerun both release scans before
+committing and pushing. If adding a new intended file, review and update the
+allowlists in `.gitignore` and `scripts/audit_release.py` first. Do not force push
+or replace an existing remote. The lack of a project license remains deliberate
+until the author confirms ownership and reuse permissions.

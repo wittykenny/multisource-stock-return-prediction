@@ -2,8 +2,10 @@
 
 ## 1. Suggested repository name
 
-`multisource-stock-return-prediction`, initially **PRIVATE**. The GitHub name's
-availability has not been checked because GitHub CLI is unavailable locally.
+`multisource-stock-return-prediction` was created privately, uploaded and then
+changed to **PUBLIC** at the author's explicit request.
+
+Repository: https://github.com/wittykenny/multisource-stock-return-prediction
 
 ## 2. Release tree
 
@@ -142,19 +144,24 @@ This is a workflow recipe, not a guarantee of identical historical numbers.
 
 The starting directory had no Git repository; there was no existing history or
 remote to preserve. A local `main` branch was initialized for this release.
-The requested initial commit message is `Initial public release`; it describes
-the release contents and does not change the intended PRIVATE remote visibility.
+The initial commit message is `Initial public release`. The repository was
+created privately and later made public following the author's explicit request.
 The staged file list and diff are reviewed and the complete index is audited;
 the release contains 34 files, approximately 0.57 MB, with no blocking scan flags.
 No force push, remote replacement or history deletion is part of the workflow.
 
 ## 11. GitHub upload state
 
-Not uploaded. `gh` is not installed or available on PATH, and `gh auth status`
-could not execute. No remote repository was created and no push was attempted.
-The name and complete upload scope have been communicated. Exact CLI installation,
-login, collision check, private creation and push commands are provided in
-`docs/REPRODUCIBILITY.md`. The user can complete these after installing the CLI.
+Uploaded to `wittykenny/multisource-stock-return-prediction` and changed to
+**PUBLIC** at the author's explicit request. The initial release commit
+`77940a0` was pushed to `main`; its remote commit and tree hashes matched the
+local repository before publication. A documentation-only follow-up records
+the publication status.
+
+The official portable GitHub CLI was downloaded from the upstream release and
+verified against its published checksum. The author completed its standard
+login. No access token was added to repository files, remote URLs or command
+arguments. The local audit folder and CLI binaries remain ignored.
 
 ## 12. Remaining author decisions
 
@@ -164,8 +171,9 @@ login, collision check, private creation and push commands are provided in
   strategy/configuration directories.
 - Supply an exact historical corpus/model revision/environment record if exact
   numerical replication is required; do not imply these already exist.
-- Complete GitHub CLI installation/login and verify repository-name availability.
-- Decide on public visibility only after reviewing the private repository.
+- Review the published repository periodically before sharing it with supervisors.
+  GitHub login, repository creation and the requested public visibility change
+  have been completed.
 
 ## Research Postgraduate Application Review
 
