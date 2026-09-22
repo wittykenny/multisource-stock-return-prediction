@@ -33,6 +33,11 @@
 !/results/data_summary.json
 !/results/leakage_audit.json
 !/results/provenance.json
+!/results/optimized_55_20seed_aggregate.csv
+!/results/optimized_55_20seed_summary.csv
+!/results/optimized_55_20seed_summary.json
+!/results/optimized_55_20seed_config.json
+!/results/optimized_55_20seed_README.md
 /docs/*
 !/docs/REPRODUCIBILITY.md
 !/docs/RELEASE_REPORT.md

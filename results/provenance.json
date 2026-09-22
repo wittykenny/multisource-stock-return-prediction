@@ -50,5 +50,126 @@
         "source_sha256": "32600e42addd8c77796775484170b5b2dd0d0b247876647a83b576573be53bfb"
       }
     ]
+  },
+  "optimized_55_20seed_aggregate.csv": {
+    "source": "data/output/optimized_55/300750/multiseed_aggregate.csv",
+    "source_sha256": "50143329d50abfa1e7f465a5062608b730cbf3f7586e4f8a891e4f15b0bea325",
+    "transformation": "Byte-for-byte copy; historical optimized_55 experiment, seeds 2024-2043",
+    "release_sha256": "50143329d50abfa1e7f465a5062608b730cbf3f7586e4f8a891e4f15b0bea325"
+  },
+  "optimized_55_20seed_summary.csv": {
+    "source": "data/output/optimized_55/300750/multiseed_summary.csv",
+    "source_sha256": "e1a14ac4ec8f17280ad506308c7313896daf684bb9a6f6dc872fd6091e68fd73",
+    "transformation": "Byte-for-byte copy; historical optimized_55 experiment, seeds 2024-2043",
+    "release_sha256": "e1a14ac4ec8f17280ad506308c7313896daf684bb9a6f6dc872fd6091e68fd73"
+  },
+  "optimized_55_20seed_summary.json": {
+    "source": "data/output/optimized_55/300750/multiseed_summary.json",
+    "source_sha256": "b138155675d901fb4d899bd042294f608352cc7cefb9274c4ff400940ea5f9dd",
+    "transformation": "Byte-for-byte copy; historical optimized_55 experiment, seeds 2024-2043",
+    "release_sha256": "b138155675d901fb4d899bd042294f608352cc7cefb9274c4ff400940ea5f9dd"
+  },
+  "optimized_55_20seed_config.json": {
+    "source": "data/output/optimized_55/multiseed/seed_2024/300750/backtest_report.json",
+    "source_sha256": "d0f4204cefe7b25316bb400e9b45593d8d90bb1b033c622bd7051ea50a4cb0a4",
+    "transformation": "Extract saved resolved config from seed 2024; other 19 saved configs differ only in train.seed and data.output_dir. Snapshot is evidence, not a complete historical source/environment lock.",
+    "release_sha256": "be0c68b125255d1ac5b52511fa4d880e4eebef8e9db0349ff2cee23775451522",
+    "additional_sources": [
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2025/300750/backtest_report.json",
+        "source_sha256": "a0014e7805b83ad62f8337f5e754fa89887c6d7ee0c69b2a8a8e1d06e03f99b1",
+        "seed": 2025
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2026/300750/backtest_report.json",
+        "source_sha256": "33dae979c04b9263530a6f85eeea3aa91fb851c7b4de128e875d45ae28223693",
+        "seed": 2026
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2027/300750/backtest_report.json",
+        "source_sha256": "71ef61a68937e531c248a6396ff4d8c531d79a589c389460aa1b7192d73e113f",
+        "seed": 2027
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2028/300750/backtest_report.json",
+        "source_sha256": "d4a4ef7e048f2df73cf655406224d43ded36194b65bd242341c321022585955f",
+        "seed": 2028
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2029/300750/backtest_report.json",
+        "source_sha256": "d522e12bdcb307a093aa5d33c52150efe28995fc127a1e0c2faec5a14d2759a8",
+        "seed": 2029
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2030/300750/backtest_report.json",
+        "source_sha256": "ab0886cc0cfd6e47e4ac28dea3e9b1042b5ccb4ff227f1160e01f58e6b161be8",
+        "seed": 2030
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2031/300750/backtest_report.json",
+        "source_sha256": "edd980bfac0e7f7a46c582d8a8d19c9cdb04fb6a549ea56e261d541981276c03",
+        "seed": 2031
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2032/300750/backtest_report.json",
+        "source_sha256": "83f597a26b68388db0eff54077944d89589fe087bb331c9893a3fcbc79412162",
+        "seed": 2032
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2033/300750/backtest_report.json",
+        "source_sha256": "60d350c29dbc650fa994edd935fb2b83a801fe6c13c1385da1433bdf3aa44df4",
+        "seed": 2033
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2034/300750/backtest_report.json",
+        "source_sha256": "b0c1d2896d902dd3514eb8bf29eee48a0faf2ae1afbac2b71244983877240b38",
+        "seed": 2034
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2035/300750/backtest_report.json",
+        "source_sha256": "b920543249a1f7c9b549c507726dc3be32b98cc65e9fab815a9f2f362c5b0a73",
+        "seed": 2035
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2036/300750/backtest_report.json",
+        "source_sha256": "4bd6af09f9d82d66b64079eb3454751348049fb48388eefa7d0ed07d58fe6bc1",
+        "seed": 2036
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2037/300750/backtest_report.json",
+        "source_sha256": "7afc7077883c726b45f70a82c3b186faa6119d82418156b9cb823a5bc32b277e",
+        "seed": 2037
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2038/300750/backtest_report.json",
+        "source_sha256": "4b791c2d2c2b65048fbe9b3e9d8bd71f11bdd83ca7989ae53bea6f4e4c1f6102",
+        "seed": 2038
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2039/300750/backtest_report.json",
+        "source_sha256": "2c92e9239a670f4aa37a91a20c3986137fe300d9a2818493ea16436aed52c083",
+        "seed": 2039
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2040/300750/backtest_report.json",
+        "source_sha256": "29947b89309fa525d6b8a4ef007ba526db9f65c7304aeb89b3538f818a0e55b0",
+        "seed": 2040
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2041/300750/backtest_report.json",
+        "source_sha256": "b1405a54ffe5d90abf648a6f9208024f78622e378fd0106a375ef7a4ed350f3f",
+        "seed": 2041
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2042/300750/backtest_report.json",
+        "source_sha256": "5ea4a6d669774a0318484d750891ab92c9598f042c70e46c2de67e4be4596a01",
+        "seed": 2042
+      },
+      {
+        "source": "data/output/optimized_55/multiseed/seed_2043/300750/backtest_report.json",
+        "source_sha256": "641acb642adce495e291885821a610b7ac3e7ac2958d58640ff65ae247f08ac5",
+        "seed": 2043
+      }
+    ]
   }
 }

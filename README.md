@@ -107,7 +107,21 @@ The saved direction counts are **309 non-up / 251 up**, with **560 non-up predic
 - [Modality ablation results](results/ablation.csv) and [saved significance tests](results/ablation_significance.csv) are included. Removing industry inputs gives slightly lower MAE than the full variant, so the full model does not dominate all ablations.
 - The strategy-return comparison flags do not establish a 5% significant advantage for the full variant. The full variant uses strategy optimization while ablated variants disable it in this experiment: economic-return differences are **not a controlled estimate of modality value**.
 - The [leakage audit](results/leakage_audit.json) records split boundaries and train-only scaling checks. A feature-name audit is not proof against every form of temporal leakage or selection bias.
-- Earlier multi-seed outputs exist locally under other configurations. They are excluded from this release's evidence rather than presented as robustness evidence for this selected configuration.
+- A separate **20-seed historical `optimized_55` experiment (2024–2043)** is included: [aggregate](results/optimized_55_20seed_aggregate.csv), [per-seed summary](results/optimized_55_20seed_summary.csv), and [configuration/provenance notes](results/optimized_55_20seed_README.md). It is **not** a 20-seed evaluation of the `red_comment_revision` / final-risk-overlay configuration used in Main Results.
+
+### Historical 20-seed experiment: `optimized_55`
+
+The explicit settings in [config/optimized_55.yaml](config/optimized_55.yaml) match the saved run settings apart from the expected seed, per-seed output directory and disabled external-baseline reporting overrides. The [saved resolved configuration](results/optimized_55_20seed_config.json) is authoritative for the fields recorded at run time: current dataclass defaults contain additional fields absent from those historical reports, so the current YAML alone is not a complete historical specification.
+
+| Metric | Mean across 20 seeds | Population SD | Saved 95% CI for the mean |
+|---|---:|---:|---:|
+| MAE | 0.017080 | 0.000053 | [0.017057, 0.017104] |
+| RMSE | 0.025961 | 0.000045 | [0.025941, 0.025981] |
+| Direction accuracy | 54.43% | 1.00 percentage points | [53.96%, 54.83%] |
+| Simulated cumulative return | -2.89% | 15.97 percentage points | [-10.18%, 4.16%] |
+| Simulated Sharpe ratio | -0.201731 | 0.686236 | [-0.506844, 0.100905] |
+
+Values are rounded from the saved aggregate; original precision and all eight metrics remain in the linked files. Each run records 560 evaluation dates. Seeds repeat the same historical setting, not independent stocks or market periods. Mean cumulative return is negative and its interval spans zero; these results do not establish a consistently profitable strategy. They must not be combined with the main experiment's 27.26% single-run cumulative return as if they described the same configuration. See the [experiment note](results/optimized_55_20seed_README.md) for interval interpretation and reproduction limits.
 
 ## Limitations
 

@@ -177,6 +177,19 @@ arguments. The local audit folder and CLI binaries remain ignored.
 
 ## Research Postgraduate Application Review
 
+### Subsequent 20-seed evidence addition
+
+At the author's request, five `results/optimized_55_20seed_*` files were added:
+the original aggregate CSV, per-seed CSV, summary JSON, an extracted saved
+configuration and a configuration/provenance note. The current release has 39
+files; the 34-file counts above describe the initial publication. The original
+main results remain unchanged. Source hashes for the new numerical artifacts and
+20 supporting reports are recorded in `results/provenance.json`. The root README
+now summarizes these results separately and explicitly identifies their
+historical `optimized_55` configuration and differences from the main experiment.
+
+### Initial presentation review
+
 A 60-second review now exposes the question, CATL sample and time span, implemented
 method, measured result and its main caveat in the first screen. The project is
 presented as an undergraduate integration/evaluation effort, not a published

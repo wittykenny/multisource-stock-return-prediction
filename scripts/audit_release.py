@@ -29,6 +29,9 @@ RESULT_FILES = {
     "README.md", "main_results.csv", "ablation.csv", "ablation_significance.csv",
     "reported_metrics.json", "experiment_config.json", "data_summary.json",
     "leakage_audit.json", "provenance.json",
+    "optimized_55_20seed_aggregate.csv", "optimized_55_20seed_summary.csv",
+    "optimized_55_20seed_summary.json", "optimized_55_20seed_config.json",
+    "optimized_55_20seed_README.md",
 }
 
 
